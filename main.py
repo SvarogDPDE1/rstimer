@@ -17,7 +17,7 @@ from aiogram.filters import Command, CommandStart
 from aiogram.types import CallbackQuery, InlineKeyboardButton, InlineKeyboardMarkup, Message
 
 
-BOT_TOKEN = "9238830575:AAGtlPcszMqfTcCNO1cMHsqafIV9zxntmnc"
+BOT_TOKEN = "9238830575:AAFsnL8_Lf1tlar3ED7EGooirNZiWBh1JSg"
 DB_PATH = "timers.db"
 DEFAULT_TZ = "Europe/Moscow"
 
