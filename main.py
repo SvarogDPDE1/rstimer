@@ -8,7 +8,7 @@ TOKEN = os.getenv('BOT_TOKEN')
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     try:
- await context.bot.send_message(chat_id=update.effective_chat.id, text='Привет! Я простой бот.')
+        await context.bot.send_message(chat_id=update.effective_chat.id, text='Привет! Я простой бот.')
     except RetryAfter as e:
         await asyncio.sleep(e.retry_after)
 
