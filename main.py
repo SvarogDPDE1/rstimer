@@ -1,23 +1,21 @@
-from telegram.ext import Updater, CommandHandler, MessageHandler
+from telegram import Update
+from telegram.ext import Application, CommandHandler, MessageHandler, filters, ContextTypes
 
 TOKEN = '9238830575:AAF-8A8hhNcGPs9Bt02IKpdnpmTnnHGDpYg'
 
-def start(update, context):
- context.bot.send_message(chat_id=update.effective_chat.id, text='Привет! Я простой бот.')
+async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    await context.bot.send_message(chat_id=update.effective_chat.id, text='Hello! I am a simple bot.')
 
-def echo(update, context):
-    context.bot.send_message(chat_id=update.effective_chat.id, text=update.message.text)
+async def echo(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    await context.bot.send_message(chat_id=update.effective_chat.id, text=update.message.text)
 
 def main():
-    updater = Updater(token=TOKEN, use_context=True)
+    application = Application.builder().token(TOKEN).build()
 
-    dp = updater.dispatcher
+    application.add_handler(CommandHandler('start', start))
+    application.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, echo))
 
-    dp.add_handler(CommandHandler('start', start))
-    dp.add_handler(MessageHandler(Filters.text & ~Filters.command, echo))
-
-    updater.start_polling()
-    updater.idle()
+    application.run_polling()
 
 if __name__ == '__main__':
     main()
