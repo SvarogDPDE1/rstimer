@@ -1,6 +1,6 @@
 from telegram.ext import Updater, CommandHandler, MessageHandler
 
-TOKEN = '9238830575:AAFsnL8_Lf1tlar3ED7EGooirNZiWBh1JSg'
+TOKEN = '9238830575:AAF-8A8hhNcGPs9Bt02IKpdnpmTnnHGDpYg'
 
 def start(update, context):
  context.bot.send_message(chat_id=update.effective_chat.id, text='Привет! Я простой бот.')
